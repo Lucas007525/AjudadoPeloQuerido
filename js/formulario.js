@@ -56,8 +56,11 @@ function criaTd(dado, classes){
     return td;
 }
 
+/*function validarPaciente (){
 
+if()
 
+}*/
 
 
 
