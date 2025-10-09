@@ -53,10 +53,10 @@ function calculaIMC(peso, altura){
     var imc = peso / (altura * altura);
     return imc.toFixed(2);
 }
-
+//validação do peso
 function validarPeso(peso){
 
-if(peso>=0 && peso < 1000){
+if(peso > 0 && peso < 1000){
 
 return true;
 }else{
@@ -64,7 +64,7 @@ return true;
 }
 
 }
-
+//validação da altura
 function validarAltura(altura){
 
 if(altura >=0 && altura < 300){

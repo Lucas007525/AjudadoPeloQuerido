@@ -17,7 +17,7 @@ botaoAdicionar.addEventListener('click',
          
          var tabela = document.querySelector("#tabela-pacientes");
          tabela.appendChild(pacienteTr);
-         formulario.request();
+         formulario.reset();
     }
 );
 
@@ -39,6 +39,17 @@ function criaTR(paciente){
     var pacienteTr = document.createElement("tr");
     pacienteTr.classList.add("paciente");
 
+var erros = validarPaciente(paciente);
+
+    if(erros.length > 0){
+
+var mensagemErro = document.querySelector("#mensagem-erro");
+mensagemErro.textContent = erros;
+console.log("pacienteinválido");
+return;
+
+    }
+
     pacienteTr.appendChild(criaTd(paciente.nome, "info-nome"));
     pacienteTr.appendChild(criaTd(paciente.peso, "info-peso"));
     pacienteTr.appendChild(criaTd(paciente.altura, "info-altura"));
@@ -56,11 +67,28 @@ function criaTd(dado, classes){
     return td;
 }
 
-/*function validarPaciente (){
+function validarPaciente(paciente){
 
-if()
 
-}*/
+    var erros = [];
+    
+if(!validarPeso(paciente.peso))
+{
+    erros.push("peso inválido");
+}
+if(!validarAltura(paciente.altura)){
+
+    erros.push("altura inválida");
+}
+return erros;
+
+
+
+}
+
+
+    
+
 
 
 
